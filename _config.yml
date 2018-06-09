@@ -61,7 +61,7 @@ input: GFM                            # use Github Flavored Markdown !important
 
 # Gitalk
 gitalk:
-  enable: false    #是否开启Gitalk评论
+  enable: true    #是否开启Gitalk评论
   clientID: 177d07e14438cf8ad5c7                           #生成的clientID
   clientSecret: 5d3807c4498396a1da4b3709fb55d908dcc48bae   #生成的clientSecret
   repo: camel007.github.io    #仓库名称
