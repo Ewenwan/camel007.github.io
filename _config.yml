@@ -56,14 +56,14 @@ kramdown:
 
 
 # 评论系统
-# Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+Disqus（https://disqus.com/）
+disqus_username: camel007
 
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: f2c84e7629bb1446c1a4                            #生成的clientID
-  clientSecret: ca6d6139d1e1b8c43f8b2e19492ddcac8b322d0d    #生成的clientSecret
+  clientID: 177d07e14438cf8ad5c7                           #生成的clientID
+  clientSecret: 5d3807c4498396a1da4b3709fb55d908dcc48bae   #生成的clientSecret
   repo: camel007.github.io    #仓库名称
   owner: camel007   #github用户名
   admin: camel007
