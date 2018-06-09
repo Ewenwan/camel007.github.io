@@ -1,6 +1,6 @@
 # Site settings
 title: YAO Blog
-SEOTitle: 垚的博客 | Y Blog
+SEOTitle: YAO的博客 | YAO's Blog
 header-img: img/post-bg-desk.jpg
 email: yaozhang.chn@gmail.com
 description: "Every failure is leading towards success."
@@ -51,7 +51,7 @@ gems: [jekyll-paginate]
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
+input: GFM                            # use Github Flavored Markdown !important
 
 
 
@@ -61,7 +61,7 @@ disqus_username: camel007
 
 # Gitalk
 gitalk:
-  enable: true    #是否开启Gitalk评论
+  enable: false    #是否开启Gitalk评论
   clientID: 177d07e14438cf8ad5c7                           #生成的clientID
   clientSecret: 5d3807c4498396a1da4b3709fb55d908dcc48bae   #生成的clientSecret
   repo: camel007.github.io    #仓库名称
