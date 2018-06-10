@@ -3,7 +3,7 @@ layout:     post
 title:      "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference"笔记
 date:       2018-06-10
 author:     Yao
-header-img: /img/2018-06-10/header.jpg
+header-img: ../img/2018-06-10/header.jpg
 catalog: true
 tags:
     - Deep Learning
@@ -36,9 +36,9 @@ Z - 量化前r = 0时，量化后q的数值
 S - 为了能把量化后的q还原到r, 引入了一个缩放系数  
 
 如何把float类型的乘法用int8替代，paper中的公式写的很明白，这我们重点说一下paper中公式(5)，是怎么转化为int8来计算的  
-![formula5](/img/2018-06-10/formlula5.jpg)  
+![formula5](../img/2018-06-10/formlula5.jpg)  
 本来公式中全部都是int8类型了，只有的个M仍然是float类型的，但是据经验值M是一个大于0小于1的数值，于是我们对M做一些小操作：  
-![formula6](/img/2018-06-10/formula6.jpg)  
+![formula6](../img/2018-06-10/formula6.jpg)  
 公式6中，令M0在[0.5, 1)范围内  
 举个例子， M = 0.3， 那么M0 = 0.3 * 2， 于是n = 1，然后我们把M0量化到整形数，具体是16位还是32根据机器决定，以32位为例，M0 = M0 * (1 << 31>>),取整后M0就是一个32位的整型数，此时n = 32， 因此公式(4)中加号后半部分全部为整型乘法和移位操作(这里M0和另外一部分都为32位的整型，其乘积结果应该是64位的整型)  
 
