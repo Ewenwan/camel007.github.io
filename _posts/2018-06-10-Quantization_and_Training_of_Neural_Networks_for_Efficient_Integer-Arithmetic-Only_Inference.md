@@ -70,7 +70,7 @@ $$
 **WARNING: 本文仅仅是我在看paper中一些自认为比较关键的点和一些当时不太明白的地方的记录，如果要看懂整个论文还需要去看参考文献中的资料**
 
 
-# Reference  
+# 3. Reference  
 1. [gemmlowp document](https://github.com/google/gemmlowp/tree/master/doc)  
 2. [Quantization and Training of Neural Networks for Efficient
 Integer-Arithmetic-Only Inference](https://arxiv.org/pdf/1712.05877.pdf)
