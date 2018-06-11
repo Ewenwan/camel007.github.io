@@ -12,7 +12,9 @@ tags:
     - quantization
 ---
 
-# 1. Introduction  
+# Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference  
+
+## 1. Introduction  
 这篇文章提出了一种量化神经网络到INT8的通用解决方案，包括量化后精度损失，怎么通过训练来挽救精度，干货满满，同时还提供了源代码，包含优化过的inference代码。  
 paper中有些地方说的比较模糊，参考文献[1]讲的就比较清楚了，作者们甚至实现了一份未优化的代码来帮助大家理解，实在是太良心了。  
 
@@ -24,9 +26,9 @@ paper中有些地方说的比较模糊，参考文献[1]讲的就比较清楚了
 > - 提出了弥补量化后精度损失的训练方案  
 > - 在MobileNet这种本身就很紧凑的网络上做实验以证明其有效性  
 
-# 2. Quantization Inference  
+## 2. Quantization Inference  
 
-## Inference  
+### Inference  
 量化就是把float型的数值映射到int8或者uint8来进行卷积运算  
 
 ![formula1](/img/2018-06-10/formula1.jpg)
@@ -43,7 +45,7 @@ S - 为了能把量化后的q还原到r, 引入了一个缩放系数
 公式6中，令M0在[0.5, 1)范围内  
 举个例子， M = 0.3， 那么M0 = 0.3 * 2， 于是n = 1，然后我们把M0量化到整形数，具体是16位还是32根据机器决定，以32位为例，M0 = M0 * (1 << 31>>),取整后M0就是一个32位的整型数，此时n = 32， 因此公式(4)中加号后半部分全部为整型乘法和移位操作(这里M0和另外一部分都为32位的整型，其乘积结果应该是64位的整型)  
 
-## Quantization  
+### Quantization  
 
 **step 1**  
 
@@ -59,7 +61,7 @@ max 和 min 为矩阵中最大最小元素的值
 
 ![formula9](/img/2018-06-10/formula9.jpg)  
 
-## Training
+### Training
 
 *大家可能还有另外一个疑惑，weight和input的max,max, S,Z这些都很好计算，paper中S3,Z3这些参数在inference的时候是不知道的。这一波操作精妙的地方在于一开始就假设r3也是int8的，所以整型矩阵相乘后通过bit shift等操作，结果仍然是int8类型的，直接进入下一次卷积操作，而不需要dequantize操作，至于S3,Z3这些参数是在训练过程中计算出来的*
 
@@ -68,7 +70,7 @@ max 和 min 为矩阵中最大最小元素的值
 **WARNING: 本文仅仅是我在看paper中一些自认为比较关键的点和一些当时不太明白的地方的记录，如果要看懂整个论文还需要去看参考文献中的资料**
 
 
-# 3. Reference  
+## 3. Reference  
 1. [gemmlowp document](https://github.com/google/gemmlowp/tree/master/doc)  
 2. [Quantization and Training of Neural Networks for Efficient
 Integer-Arithmetic-Only Inference](https://arxiv.org/pdf/1712.05877.pdf)
