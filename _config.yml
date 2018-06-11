@@ -68,7 +68,7 @@ gitalk:
   repo: camel007.github.io    #仓库名称
   owner: camel007   #github用户名
   admin: camel007
-  id: md5(location.href)
+  id: '<%= page.date %>'
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
