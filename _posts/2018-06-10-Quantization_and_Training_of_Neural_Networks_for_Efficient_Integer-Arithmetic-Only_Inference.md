@@ -27,12 +27,14 @@ paper中有些地方说的比较模糊，参考文献[1]讲的就比较清楚了
 # 2. Quantization Inference  
 
 ## Inference  
-量化就是把float型的数值映射到int8或者uint8来进行卷积运算。
+量化就是把float型的数值映射到int8或者uint8来进行卷积运算  
+
 $$
 
 r = S(q - Z)
 
 $$  
+
 r - 需要量化的float型数值  
 q - 量化后的uint8类型数值  
 Z - 量化前r = 0时，量化后q的数值  
@@ -48,6 +50,7 @@ S - 为了能把量化后的q还原到r, 引入了一个缩放系数
 ## Quantization  
 
 **step 1**  
+
 $$
 
 S = (max - min)/(255)
@@ -56,6 +59,7 @@ $$
 max 和 min 中最大最小元素的值  
 
 **step 2**  
+
 $$
 
 Z = (-min)/S
@@ -63,6 +67,7 @@ Z = (-min)/S
 $$   
 
 **step 3**  
+
 $$
 
 q = r/S + Z
