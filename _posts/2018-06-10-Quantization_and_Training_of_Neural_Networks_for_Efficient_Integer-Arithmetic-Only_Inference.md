@@ -29,11 +29,7 @@ paper中有些地方说的比较模糊，参考文献[1]讲的就比较清楚了
 ## Inference  
 量化就是把float型的数值映射到int8或者uint8来进行卷积运算  
 
-$$
-
-r = S(q - Z)
-
-$$  
+![formula1](/img/2018-06-10/formula1.jpg)
 
 r - 需要量化的float型数值  
 q - 量化后的uint8类型数值  
@@ -51,29 +47,17 @@ S - 为了能把量化后的q还原到r, 引入了一个缩放系数
 
 **step 1**  
 
-$$
+![formula7](/img/2018-06-10/formula7.jpg)  
 
-S = (max - min)/(255)
-
-$$  
-
-max 和 min 中最大最小元素的值  
+max 和 min 为矩阵中最大最小元素的值  
 
 **step 2**  
 
-$$
-
-Z = (-min)/S
-
-$$   
+![formula8](/img/2018-06-10/formula8.jpg)  
 
 **step 3**  
 
-$$
-
-q = r/S + Z
-
-$$  
+![formula9](/img/2018-06-10/formula9.jpg)  
 
 ## Training
 
