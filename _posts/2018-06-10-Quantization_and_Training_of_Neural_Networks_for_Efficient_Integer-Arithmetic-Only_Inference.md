@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Quantization and Training of Neural Networks Notes
-sub-title:  Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference
+title:      Quantization Notes
+subtitle:   "\"Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference"\"
 date:       2018-06-10
 author:     Yao
 header-img: img/2018-06-10/header.jpg
